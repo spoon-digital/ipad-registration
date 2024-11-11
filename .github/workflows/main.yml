@@ -22,10 +22,15 @@ jobs:
           node-version: '20'  # Specify your Node.js version
 
       # Step 3: Install dependencies and build
-      - name: Install dependencies and build
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Run Linter
+        run: yarn lint || true  # This will ignore lint errors
+
+      - name: Build Project
         run: |
-          yarn install
-          yarn build --no-lint  # Adjust this if you use yarn
+          yarn build
 
       # Step 4: Upload to S3
       - name: Deploy to S3
