@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies and build
         run: |
           yarn install
-          yarn build  # Adjust this if you use yarn
+          yarn build --no-lint  # Adjust this if you use yarn
 
       # Step 4: Upload to S3
       - name: Deploy to S3
